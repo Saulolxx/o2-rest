@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import config from './config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { resolve } from 'path';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           username: configService.get('database.user'),
           password: configService.get('database.pass'),
           database: configService.get('database.name'),
+          entities: [resolve(__dirname, '**', '*.entity{.ts,.js}')],
           autoLoadEntities: true,
         };
       },
