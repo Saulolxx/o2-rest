@@ -19,7 +19,9 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prepare": "husky install",
-    "typeorm": "typeorm-ts-node-commonjs"
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:up": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./src/config/database/datasource.config.ts",
+    "migration:down": "ts-node ./node_modules/typeorm/cli.js migration:revert -d ./src/config/database/datasource.config.ts"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
