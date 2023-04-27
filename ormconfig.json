@@ -1,0 +1,15 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "pg",
+  "password": "",
+  "database": "o2database",
+  "synchronize": false,
+  "logging": true,
+  "entities": ["dist/**/*.entity{.ts,.js}"],
+  "migrations": ["dist/config/database/migrations/*{.ts,.js}"],
+  "cli": {
+    "migrationsDir": "src/config/database/migrations"
+  }
+}
