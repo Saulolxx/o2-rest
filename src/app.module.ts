@@ -10,6 +10,7 @@ import { resolve } from 'path';
 import { SeniorityModule } from './modules/seniority/seniority.module';
 import { SegmentModule } from './modules/segment/segment.module';
 import { PersonModule } from './modules/person/person.module';
+import { SkillLevelModule } from './modules/skill-level/skill-level.module';
 import { LanguageLevelModule } from './modules/language-level/language-level.module';
 import { CurrencyModule } from './modules/currency/currency.module';
 import { DegreeModalityModule } from './modules/degree-modality/degree-modality.module';
@@ -34,6 +35,7 @@ import { DegreeModalityModule } from './modules/degree-modality/degree-modality.
       },
     }),
     SeniorityModule,
+    SkillLevelModule,
     SegmentModule,
     PersonModule,
     LanguageLevelModule,
