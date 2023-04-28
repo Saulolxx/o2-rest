@@ -1,0 +1,25 @@
+import { Module } from '@nestjs/common';
+import { {{ pascalCase name }}Controller } from './{{ kebabCase name }}.controller';
+
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { {{ pascalCase name }} } from './entities/{{ kebabCase name }}.entity';
+import {
+  Create{{ pascalCase name }}Service,
+  Delete{{ pascalCase name }}Service,
+  GetAll{{ pascalCase name }}Service,
+  GetOneById{{ pascalCase name }}Service,
+  Update{{ pascalCase name }}Service,
+} from './use-cases';
+
+@Module({
+  imports: [TypeOrmModule.forFeature([{{ pascalCase name }}])],
+  controllers: [{{ pascalCase name }}Controller],
+  providers: [
+    Create{{ pascalCase name }}Service,
+    GetOneById{{ pascalCase name }}Service,
+    GetAll{{ pascalCase name }}Service,
+    Update{{ pascalCase name }}Service,
+    Delete{{ pascalCase name }}Service,
+  ],
+})
+export class {{ pascalCase name }}Module {}

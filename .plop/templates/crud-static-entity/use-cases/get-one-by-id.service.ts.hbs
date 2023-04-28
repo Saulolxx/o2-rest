@@ -1,0 +1,19 @@
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { {{ pascalCase name }} } from '../entities/{{ kebabCase name }}.entity';
+import { Repository } from 'typeorm';
+
+@Injectable()
+export class GetOneById{{ pascalCase name }}Service {
+  constructor(
+    @InjectRepository({{ pascalCase name }})
+    private {{ camelCase namePlural }}Repository: Repository<{{ pascalCase name }}>,
+  ) {}
+
+  public async run(id: number) {
+    const {{ camelCase name }} = await this.{{ camelCase namePlural }}Repository.findOneBy({ id });
+    if (!{{ camelCase name }}) throw new NotFoundException();
+
+    return {{ camelCase name }};
+  }
+}

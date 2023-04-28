@@ -1,0 +1,16 @@
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { {{pascalCase name}} } from '../entities/{{ kebabCase name }}.entity';
+import { Repository } from 'typeorm';
+
+@Injectable()
+export class Create{{ pascalCase name }}Service {
+  constructor(
+    @InjectRepository({{ pascalCase name }})
+    private {{ camelCase namePlural }}Repository: Repository<{{ pascalCase name }}>,
+  ) {}
+
+  public run({{ camelCase name }}: {{ pascalCase name }}) {
+    return this.{{ camelCase namePlural }}Repository.save({{ camelCase name }});
+  }
+}

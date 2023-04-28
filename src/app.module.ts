@@ -8,6 +8,14 @@ import config from './config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { resolve } from 'path';
 import { LanguageModule } from './modules/language/language.module';
+import { SeniorityModule } from './modules/seniority/seniority.module';
+import { SegmentModule } from './modules/segment/segment.module';
+import { PersonModule } from './modules/person/person.module';
+import { ExperienceRegimeModule } from './modules/experience-regime/experience-regime.module';
+import { SkillLevelModule } from './modules/skill-level/skill-level.module';
+import { LanguageLevelModule } from './modules/language-level/language-level.module';
+import { CurrencyModule } from './modules/currency/currency.module';
+import { DegreeModalityModule } from './modules/degree-modality/degree-modality.module';
 
 @Module({
   imports: [
@@ -29,6 +37,14 @@ import { LanguageModule } from './modules/language/language.module';
       },
     }),
     LanguageModule,
+    SeniorityModule,
+    SkillLevelModule,
+    SegmentModule,
+    PersonModule,
+    ExperienceRegimeModule,
+    LanguageLevelModule,
+    CurrencyModule,
+    DegreeModalityModule,
   ],
   controllers: [AppController],
   providers: [AppService],

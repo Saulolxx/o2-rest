@@ -1,0 +1,19 @@
+import { MigrationInterface, QueryRunner } from 'typeorm';
+
+export class Seeder{{ pascalCase name }}{{ timestamp }} implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
+      INSERT INTO "{{ pascalCase name }}" () VALUES ();
+    `);
+
+    await queryRunner.query(
+      `SELECT SETVAL('"{{ pascalCase name }}_id_seq"', (SELECT MAX(id) FROM "{{ pascalCase name }}"));`,
+    );
+  }
+
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.query(`
+      DELETE FROM "{{ pascalCase name }}" WHERE id IN ();
+    `);
+  }
+}

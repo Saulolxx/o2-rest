@@ -1,0 +1,69 @@
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  HttpCode,
+} from '@nestjs/common';
+import { Create{{ pascalCase name }}Dto } from './dto/create-{{ kebabCase name }}.dto';
+import { Update{{ pascalCase name }}Dto } from './dto/update-{{ kebabCase name }}.dto';
+import { {{ pascalCase name }} } from './entities/{{ kebabCase name }}.entity';
+import {
+  Create{{ pascalCase name }}Service,
+  Delete{{ pascalCase name }}Service,
+  GetAll{{ pascalCase name }}Service,
+  GetOneById{{ pascalCase name }}Service,
+  Update{{ pascalCase name }}Service,
+} from './use-cases';
+
+@Controller('{{ kebabCase namePlural }}')
+export class {{ pascalCase name }}Controller {
+  constructor(
+    private readonly create{{ pascalCase name }}Service: Create{{ pascalCase name }}Service,
+    private readonly update{{ pascalCase name }}Service: Update{{ pascalCase name }}Service,
+    private readonly delete{{ pascalCase name }}Service: Delete{{ pascalCase name }}Service,
+    private readonly getOneById{{ pascalCase name }}Service: GetOneById{{ pascalCase name }}Service,
+    private readonly getAll{{ pascalCase name }}Service: GetAll{{ pascalCase name }}Service,
+  ) {}
+
+  @Post()
+  @HttpCode(201)
+  create(@Body() create{{ pascalCase name }}Dto: Create{{ pascalCase name }}Dto) {
+    const {{ camelCase name }} = new {{ pascalCase name }}();
+
+    Object.assign({{ camelCase name }}, create{{ pascalCase name }}Dto);
+
+    return this.create{{ pascalCase name }}Service.run({{ camelCase name }});
+  }
+
+  @Get()
+  findAll() {
+    return this.getAll{{ pascalCase name }}Service.run();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.getOneById{{ pascalCase name }}Service.run(+id);
+  }
+
+  @Patch(':id')
+  update(
+    @Param('id') id: string,
+    @Body() update{{ pascalCase name }}Dto: Update{{ pascalCase name }}Dto,
+  ) {
+    const updated{{ pascalCase name }} = new {{ pascalCase name }}();
+
+    Object.assign(updated{{ pascalCase name }}, update{{ pascalCase name }}Dto);
+
+    return this.update{{ pascalCase name }}Service.run(+id, updated{{ pascalCase name }});
+  }
+
+  @Delete(':id')
+  @HttpCode(204)
+  remove(@Param('id') id: string) {
+    return this.delete{{ pascalCase name }}Service.run(+id);
+  }
+}
