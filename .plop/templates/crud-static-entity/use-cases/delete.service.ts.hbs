@@ -1,0 +1,17 @@
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { {{ pascalCase name }} } from '../entities/{{ kebabCase name }}.entity';
+import { Repository } from 'typeorm';
+
+@Injectable()
+export class Delete{{ pascalCase name }}Service {
+  constructor(
+    @InjectRepository({{ pascalCase name }})
+    private {{ camelCase namePlural }}Repository: Repository<{{ pascalCase name }}>,
+  ) {}
+
+  public async run(id: number) {
+    await this.{{ camelCase namePlural }}Repository.delete({ id });
+    return;
+  }
+}
