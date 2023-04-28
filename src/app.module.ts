@@ -11,6 +11,8 @@ import { SeniorityModule } from './modules/seniority/seniority.module';
 import { SegmentModule } from './modules/segment/segment.module';
 import { PersonModule } from './modules/person/person.module';
 import { LanguageLevelModule } from './modules/language-level/language-level.module';
+import { CurrencyModule } from './modules/currency/currency.module';
+import { DegreeModalityModule } from './modules/degree-modality/degree-modality.module';
 
 @Module({
   imports: [
@@ -35,6 +37,8 @@ import { LanguageLevelModule } from './modules/language-level/language-level.mod
     SegmentModule,
     PersonModule,
     LanguageLevelModule,
+    CurrencyModule,
+    DegreeModalityModule,
   ],
   controllers: [AppController],
   providers: [AppService],
