@@ -15,7 +15,7 @@ import { PersonModule } from './modules/person/person.module';
   imports: [
     ConfigModule.forRoot({ isGlobal: true, load: [config] }),
     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule, SegmentModule, PersonModule],
+      imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
         return {
@@ -31,6 +31,8 @@ import { PersonModule } from './modules/person/person.module';
       },
     }),
     SeniorityModule,
+    SegmentModule,
+    PersonModule,
   ],
   controllers: [AppController],
   providers: [AppService],
