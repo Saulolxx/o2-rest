@@ -11,6 +11,7 @@ import { SeniorityModule } from './modules/seniority/seniority.module';
 import { SegmentModule } from './modules/segment/segment.module';
 import { PersonModule } from './modules/person/person.module';
 import { ExperienceRegimeModule } from './modules/experience-regime/experience-regime.module';
+import { DegreeModalityModule } from './modules/degree-modality/degree-modality.module';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { ExperienceRegimeModule } from './modules/experience-regime/experience-r
     SegmentModule,
     PersonModule,
     ExperienceRegimeModule,
+    DegreeModalityModule,
   ],
   controllers: [AppController],
   providers: [AppService],
