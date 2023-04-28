@@ -10,6 +10,7 @@ import { resolve } from 'path';
 import { SeniorityModule } from './modules/seniority/seniority.module';
 import { SegmentModule } from './modules/segment/segment.module';
 import { PersonModule } from './modules/person/person.module';
+import { LanguageLevelModule } from './modules/language-level/language-level.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { PersonModule } from './modules/person/person.module';
     SeniorityModule,
     SegmentModule,
     PersonModule,
+    LanguageLevelModule,
   ],
   controllers: [AppController],
   providers: [AppService],
