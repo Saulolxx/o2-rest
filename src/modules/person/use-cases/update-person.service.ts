@@ -88,13 +88,13 @@ export class UpdatePerson {
 
     Object.assign(person, {
       ...person,
-      name: name ? name.toLowerCase() : person.name,
+      name: name ? name : person.name,
       linkedin: linkedin ? linkedin : person.linkedin,
       birthday: birthday ? birthday : person.birthday,
       compleoid: compleoid ? compleoid : person.compleoid,
-      country: country ? country.toLowerCase() : person.country,
-      state: state ? state.toLowerCase() : person.state,
-      city: city ? city.toLowerCase() : person.city,
+      country: country ? country : person.country,
+      state: state ? state : person.state,
+      city: city ? city : person.city,
       redFlag: redFlag !== undefined ? redFlag : person.redFlag,
       reasonRedFlag: reasonRedFlag ? reasonRedFlag : person.reasonRedFlag,
     });

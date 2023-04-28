@@ -47,15 +47,15 @@ export class CreatePerson {
     if (existingPhone) throw new BadRequestException('Phone alread exists!');
 
     Object.assign(person, {
-      name: name.toLowerCase(),
+      name,
       email,
       linkedin,
       birthday,
       compleoid,
       phone: phone.replace(/\s+/g, ''),
-      country: country && country.toLowerCase(),
-      state: state && state.toLowerCase(),
-      city: city && city.toLowerCase(),
+      country,
+      state,
+      city,
       redFlag,
       reasonRedFlag,
     });
