@@ -21,7 +21,8 @@
     "prepare": "husky install",
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:up": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./src/config/database/datasource.config.ts",
-    "migration:down": "ts-node ./node_modules/typeorm/cli.js migration:revert -d ./src/config/database/datasource.config.ts"
+    "migration:down": "ts-node ./node_modules/typeorm/cli.js migration:revert -d ./src/config/database/datasource.config.ts",
+    "migration:create": "typeorm migration:create"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
