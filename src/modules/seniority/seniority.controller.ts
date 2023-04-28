@@ -18,7 +18,6 @@ import {
   GetOneByIdSeniorityService,
   UpdateSeniorityService,
 } from './use-cases';
-import { plainToClass } from 'class-transformer';
 
 @Controller('seniorities')
 export class SeniorityController {
