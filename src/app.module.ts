@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import config from './config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { resolve } from 'path';
+import { SeniorityModule } from './modules/seniority/seniority.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { resolve } from 'path';
         };
       },
     }),
+    SeniorityModule,
   ],
   controllers: [AppController],
   providers: [AppService],
