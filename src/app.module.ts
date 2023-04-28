@@ -11,6 +11,9 @@ import { SeniorityModule } from './modules/seniority/seniority.module';
 import { SegmentModule } from './modules/segment/segment.module';
 import { PersonModule } from './modules/person/person.module';
 import { ExperienceRegimeModule } from './modules/experience-regime/experience-regime.module';
+import { SkillLevelModule } from './modules/skill-level/skill-level.module';
+import { LanguageLevelModule } from './modules/language-level/language-level.module';
+import { CurrencyModule } from './modules/currency/currency.module';
 import { DegreeModalityModule } from './modules/degree-modality/degree-modality.module';
 
 @Module({
@@ -33,9 +36,12 @@ import { DegreeModalityModule } from './modules/degree-modality/degree-modality.
       },
     }),
     SeniorityModule,
+    SkillLevelModule,
     SegmentModule,
     PersonModule,
     ExperienceRegimeModule,
+    LanguageLevelModule,
+    CurrencyModule,
     DegreeModalityModule,
   ],
   controllers: [AppController],
