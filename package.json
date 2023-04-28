@@ -20,9 +20,12 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prepare": "husky install",
     "typeorm": "typeorm-ts-node-commonjs",
+    "generate": "plop --plopfile ./.plop/plopfile.cjs",
     "migration:up": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./src/config/database/datasource.config.ts",
     "migration:down": "ts-node ./node_modules/typeorm/cli.js migration:revert -d ./src/config/database/datasource.config.ts",
-    "migration:create": "typeorm migration:create"
+    "migration:create": "typeorm migration:create",
+    "seeder:up": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./src/config/database/seeder.config.ts",
+    "seeder:down": "ts-node ./node_modules/typeorm/cli.js migration:revert -d ./src/config/database/seeder.config.ts"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
