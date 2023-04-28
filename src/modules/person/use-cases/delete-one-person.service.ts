@@ -13,8 +13,6 @@ export class DeleteOnePerson {
   ) {}
 
   public async run(id: number) {
-    await this.getOnePerson.run(id);
-
     return await this.personRepository.delete({ id });
   }
 }
