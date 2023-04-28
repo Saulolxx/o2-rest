@@ -17,6 +17,7 @@ const datasource = new DataSource({
   password: options.database.pass,
   database: options.database.name,
   synchronize: false,
+  migrationsTableName: 'seeders',
   migrations: [resolve(__dirname, 'seeders', '*{.ts,.js}')],
   entities: [resolve(__dirname, '..', '..', '*.entity{.ts,.js}')],
 });
