@@ -8,12 +8,14 @@ import config from './config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { resolve } from 'path';
 import { SeniorityModule } from './modules/seniority/seniority.module';
+import { SegmentModule } from './modules/segment/segment.module';
+import { PersonModule } from './modules/person/person.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, load: [config] }),
     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
+      imports: [ConfigModule, SegmentModule, PersonModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
         return {
