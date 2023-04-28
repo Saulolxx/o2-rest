@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import config from './config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { resolve } from 'path';
+import { LanguageModule } from './modules/language/language.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { resolve } from 'path';
         };
       },
     }),
+    LanguageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
