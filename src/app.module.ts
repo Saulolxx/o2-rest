@@ -10,6 +10,7 @@ import { resolve } from 'path';
 import { SeniorityModule } from './modules/seniority/seniority.module';
 import { SegmentModule } from './modules/segment/segment.module';
 import { PersonModule } from './modules/person/person.module';
+import { SkillLevelModule } from './modules/skill-level/skill-level.module';
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { PersonModule } from './modules/person/person.module';
       },
     }),
     SeniorityModule,
+    SkillLevelModule,
   ],
   controllers: [AppController],
   providers: [AppService],
