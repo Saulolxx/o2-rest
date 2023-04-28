@@ -11,12 +11,15 @@ import { SeniorityModule } from './modules/seniority/seniority.module';
 import { SegmentModule } from './modules/segment/segment.module';
 import { PersonModule } from './modules/person/person.module';
 import { SkillLevelModule } from './modules/skill-level/skill-level.module';
+import { LanguageLevelModule } from './modules/language-level/language-level.module';
+import { CurrencyModule } from './modules/currency/currency.module';
+import { DegreeModalityModule } from './modules/degree-modality/degree-modality.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, load: [config] }),
     TypeOrmModule.forRootAsync({
-      imports: [ConfigModule, SegmentModule, PersonModule],
+      imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
         return {
@@ -33,6 +36,11 @@ import { SkillLevelModule } from './modules/skill-level/skill-level.module';
     }),
     SeniorityModule,
     SkillLevelModule,
+    SegmentModule,
+    PersonModule,
+    LanguageLevelModule,
+    CurrencyModule,
+    DegreeModalityModule,
   ],
   controllers: [AppController],
   providers: [AppService],
