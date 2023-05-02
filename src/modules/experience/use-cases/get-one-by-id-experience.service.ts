@@ -10,8 +10,11 @@ export class GetOneByIdExperienceService {
     private experiencesRepository: Repository<Experience>,
   ) {}
 
-  public async run(id: number) {
-    const experience = await this.experiencesRepository.findOneBy({ id });
+  public async run(id: number, personID: number) {
+    const experience = await this.experiencesRepository.findOneBy({
+      id,
+      personID,
+    });
     if (!experience) throw new NotFoundException();
 
     return experience;

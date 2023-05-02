@@ -51,8 +51,11 @@ export class ExperienceController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.getOneByIdExperienceService.run(+id);
+  findOne(
+    @Param('id') id: string,
+    @Param('person_id', ParseIntPipe) personID: number,
+  ) {
+    return this.getOneByIdExperienceService.run(+id, personID);
   }
 
   @Patch(':id')
