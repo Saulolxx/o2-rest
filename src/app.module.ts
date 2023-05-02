@@ -15,6 +15,7 @@ import { SkillLevelModule } from './modules/skill-level/skill-level.module';
 import { LanguageLevelModule } from './modules/language-level/language-level.module';
 import { CurrencyModule } from './modules/currency/currency.module';
 import { DegreeModalityModule } from './modules/degree-modality/degree-modality.module';
+import { PersonTypeModule } from './modules/person-type/person-type.module';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { DegreeModalityModule } from './modules/degree-modality/degree-modality.
     LanguageLevelModule,
     CurrencyModule,
     DegreeModalityModule,
+    PersonTypeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
