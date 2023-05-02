@@ -45,19 +45,13 @@ export class UpdateExperienceService {
     experienceRegimeID,
     currencyID,
   }: UpdateExperienceProps) {
-    const experience = await this.experiencesRepository.findOneBy({ id });
+    const experience = await this.experiencesRepository.findOneBy({
+      id,
+      personID,
+    });
 
     if (!experience) {
       throw new NotFoundException();
-    }
-
-    if (personID) {
-      const person = await this.getOnePerson.run(personID);
-
-      Object.assign(experience, {
-        ...experience,
-        person,
-      });
     }
 
     if (experienceModalityID) {
@@ -103,7 +97,6 @@ export class UpdateExperienceService {
 
     await this.experiencesRepository.save(experience);
 
-    delete experience.person;
     delete experience.experienceModality;
     delete experience.experienceRegime;
     delete experience.currency;
