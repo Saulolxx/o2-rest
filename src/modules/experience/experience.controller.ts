@@ -11,7 +11,6 @@ import {
 } from '@nestjs/common';
 import { CreateExperienceDto } from './dto/create-experience.dto';
 import { UpdateExperienceDto } from './dto/update-experience.dto';
-import { Experience } from './entities/experience.entity';
 import {
   CreateExperienceProps,
   CreateExperienceService,
