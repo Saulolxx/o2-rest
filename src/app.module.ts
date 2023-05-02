@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import config from './config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { resolve } from 'path';
+import { LanguageModule } from './modules/language/language.module';
 import { SeniorityModule } from './modules/seniority/seniority.module';
 import { SegmentModule } from './modules/segment/segment.module';
 import { PersonModule } from './modules/person/person.module';
@@ -16,6 +17,8 @@ import { LanguageLevelModule } from './modules/language-level/language-level.mod
 import { CurrencyModule } from './modules/currency/currency.module';
 import { DegreeModalityModule } from './modules/degree-modality/degree-modality.module';
 import { ExperienceModalityModule } from './modules/experience-modality/experience-modality.module';
+import { DegreeSituationModule } from './modules/degree-situation/degree-situation.module';
+import { PersonTypeModule } from './modules/person-type/person-type.module';
 
 @Module({
   imports: [
@@ -36,6 +39,7 @@ import { ExperienceModalityModule } from './modules/experience-modality/experien
         };
       },
     }),
+    LanguageModule,
     SeniorityModule,
     SkillLevelModule,
     SegmentModule,
@@ -45,6 +49,8 @@ import { ExperienceModalityModule } from './modules/experience-modality/experien
     CurrencyModule,
     DegreeModalityModule,
     ExperienceModalityModule,
+    DegreeSituationModule,
+    PersonTypeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
