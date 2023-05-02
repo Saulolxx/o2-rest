@@ -16,6 +16,7 @@ import { SkillLevelModule } from './modules/skill-level/skill-level.module';
 import { LanguageLevelModule } from './modules/language-level/language-level.module';
 import { CurrencyModule } from './modules/currency/currency.module';
 import { DegreeModalityModule } from './modules/degree-modality/degree-modality.module';
+import { ExperienceModalityModule } from './modules/experience-modality/experience-modality.module';
 import { DegreeSituationModule } from './modules/degree-situation/degree-situation.module';
 import { PersonTypeModule } from './modules/person-type/person-type.module';
 
@@ -47,6 +48,7 @@ import { PersonTypeModule } from './modules/person-type/person-type.module';
     LanguageLevelModule,
     CurrencyModule,
     DegreeModalityModule,
+    ExperienceModalityModule,
     DegreeSituationModule,
     PersonTypeModule,
   ],
