@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import config from './config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { resolve } from 'path';
+import { LanguageModule } from './modules/language/language.module';
 import { SeniorityModule } from './modules/seniority/seniority.module';
 import { SegmentModule } from './modules/segment/segment.module';
 import { PersonModule } from './modules/person/person.module';
@@ -35,6 +36,7 @@ import { DegreeModalityModule } from './modules/degree-modality/degree-modality.
         };
       },
     }),
+    LanguageModule,
     SeniorityModule,
     SkillLevelModule,
     SegmentModule,
