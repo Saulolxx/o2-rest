@@ -21,5 +21,13 @@ import {
     UpdateExperienceRegimeService,
     DeleteExperienceRegimeService,
   ],
+  exports: [
+    TypeOrmModule,
+    CreateExperienceRegimeService,
+    GetOneByIdExperienceRegimeService,
+    GetAllExperienceRegimeService,
+    UpdateExperienceRegimeService,
+    DeleteExperienceRegimeService,
+  ],
 })
 export class ExperienceRegimeModule {}

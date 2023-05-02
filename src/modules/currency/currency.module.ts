@@ -21,5 +21,13 @@ import {
     UpdateCurrencyService,
     DeleteCurrencyService,
   ],
+  exports: [
+    TypeOrmModule,
+    CreateCurrencyService,
+    GetOneByIdCurrencyService,
+    GetAllCurrencyService,
+    UpdateCurrencyService,
+    DeleteCurrencyService,
+  ],
 })
 export class CurrencyModule {}

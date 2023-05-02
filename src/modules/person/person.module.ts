@@ -18,6 +18,14 @@ import { UpdatePerson } from './use-cases/update-person.service';
     GetOnePerson,
     DeleteOnePerson,
   ],
-  exports: [TypeOrmModule, PersonService],
+  exports: [
+    TypeOrmModule,
+    PersonService,
+    CreatePerson,
+    UpdatePerson,
+    GetAllPersons,
+    GetOnePerson,
+    DeleteOnePerson,
+  ],
 })
 export class PersonModule {}

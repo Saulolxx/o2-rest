@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Experience } from 'src/modules/experience/entities/experience.entity';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 
 @Entity('ExperienceModality')
 export class ExperienceModality {
@@ -13,4 +14,7 @@ export class ExperienceModality {
 
   @Column({ default: true, type: 'boolean', name: 'is_active' })
   isActive: boolean;
+
+  @OneToMany(() => Experience, (experience) => experience.experienceModality)
+  experiences: Experience[];
 }

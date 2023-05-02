@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Experience } from 'src/modules/experience/entities/experience.entity';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 
 @Entity('Currency')
 export class Currency {
@@ -13,4 +14,7 @@ export class Currency {
 
   @Column({ default: true, type: 'boolean', name: 'is_active' })
   isActive: boolean;
+
+  @OneToMany(() => Experience, (experience) => experience.currency)
+  experiences: Experience[];
 }

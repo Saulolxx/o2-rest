@@ -21,5 +21,13 @@ import {
     UpdateExperienceModalityService,
     DeleteExperienceModalityService,
   ],
+  exports: [
+    TypeOrmModule,
+    CreateExperienceModalityService,
+    GetOneByIdExperienceModalityService,
+    GetAllExperienceModalityService,
+    UpdateExperienceModalityService,
+    DeleteExperienceModalityService,
+  ],
 })
 export class ExperienceModalityModule {}

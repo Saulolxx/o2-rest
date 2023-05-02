@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Experience } from 'src/modules/experience/entities/experience.entity';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity({ name: 'Person' })
 export class Person {
@@ -41,4 +42,7 @@ export class Person {
 
   @Column({ name: 'reason_red_flag', type: 'varchar', length: 500 })
   reasonRedFlag: string;
+
+  @OneToMany(() => Experience, (experience) => experience.person)
+  experiences: Experience[];
 }
