@@ -41,10 +41,6 @@ export class CreateExperienceDto {
   @IsDateString()
   endDate: Date;
 
-  @IsNotEmpty()
-  @IsNumber()
-  personID: number;
-
   @IsOptional()
   @IsNumber()
   experienceModalityID: number;

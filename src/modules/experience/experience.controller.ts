@@ -22,7 +22,7 @@ import {
   UpdateExperienceService,
 } from './use-cases';
 
-@Controller('experiences')
+@Controller('persons/:person_id/experiences')
 export class ExperienceController {
   constructor(
     private readonly createExperienceService: CreateExperienceService,
@@ -34,16 +34,20 @@ export class ExperienceController {
 
   @Post()
   @HttpCode(201)
-  create(@Body() createExperienceDto: CreateExperienceDto) {
+  create(
+    @Param('person_id', ParseIntPipe) personID: number,
+    @Body() createExperienceDto: CreateExperienceDto,
+  ) {
     const createExperienceProps: CreateExperienceProps = {
+      personID,
       ...createExperienceDto,
     };
     return this.createExperienceService.run(createExperienceProps);
   }
 
   @Get()
-  findAll() {
-    return this.getAllExperienceService.run();
+  findAll(@Param('person_id', ParseIntPipe) personID: number) {
+    return this.getAllExperienceService.run(personID);
   }
 
   @Get(':id')
@@ -54,11 +58,13 @@ export class ExperienceController {
   @Patch(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
+    @Param('person_id', ParseIntPipe) personID: number,
     @Body() updateExperienceDto: UpdateExperienceDto,
   ) {
     const updateExperienceProps: UpdateExperienceProps = {
       ...updateExperienceDto,
       id,
+      personID,
     };
 
     return this.updateExperienceService.run(updateExperienceProps);

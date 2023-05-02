@@ -10,7 +10,11 @@ export class GetAllExperienceService {
     private experiencesRepository: Repository<Experience>,
   ) {}
 
-  public run() {
-    return this.experiencesRepository.find();
+  public run(personID: number) {
+    return this.experiencesRepository.find({
+      where: {
+        personID,
+      },
+    });
   }
 }
