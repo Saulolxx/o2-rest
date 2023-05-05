@@ -13,8 +13,7 @@ stages:
 build:
   stage: build
   only:
-    - develop
-    - master
+    - merge_requests
   script:
     - npm install
     - npm run build
@@ -26,8 +25,7 @@ lint:
   stage: lint
   image: node:16-alpine
   only:
-    - develop
-    - master
+    - merge_requests
   script:
     - npm install
     - npm run lint
@@ -36,8 +34,7 @@ test:
   stage: test
   image: node:16-alpine
   only:
-    - develop
-    - master
+    - merge_requests
   script:
     - npm install
     - npm run test
