@@ -58,7 +58,10 @@ export class ExperienceModalityController {
 
     Object.assign(updatedExperienceModality, updateExperienceModalityDto);
 
-    return this.updateExperienceModalityService.run(+id, updatedExperienceModality);
+    return this.updateExperienceModalityService.run(
+      +id,
+      updatedExperienceModality,
+    );
   }
 
   @Delete(':id')
