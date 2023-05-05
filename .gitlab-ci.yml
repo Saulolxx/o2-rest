@@ -25,7 +25,6 @@ build:
 lint:
   image: node:16
   stage: lint
-  image: node:16-alpine
   only:
     - merge_requests
   script:
@@ -35,7 +34,6 @@ lint:
 test:
   image: node:16
   stage: test
-  image: node:16-alpine
   only:
     - merge_requests
   script:
