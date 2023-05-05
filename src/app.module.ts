@@ -20,6 +20,7 @@ import { DegreeSituationModule } from './modules/degree-situation/degree-situati
 import { PersonTypeModule } from './modules/person-type/person-type.module';
 import { ExperienceModule } from './modules/experience/experience.module';
 import { ExperienceModalityModule } from './modules/experience-modality/experience-modality.module';
+import { DegreeModule } from './modules/degree/degree.module';
 import { EvaluationModule } from './modules/evaluation/evaluation.module';
 
 @Module({
@@ -54,6 +55,7 @@ import { EvaluationModule } from './modules/evaluation/evaluation.module';
     DegreeSituationModule,
     PersonTypeModule,
     ExperienceModule,
+    DegreeModule,
     EvaluationModule,
   ],
   controllers: [AppController],
