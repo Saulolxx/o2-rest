@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Degree } from 'src/modules/degree/entities/degree.entity';
+import { Column, Entity, JoinColumn, OneToMany, PrimaryColumn } from 'typeorm';
 
 @Entity('DegreeSituation')
 export class DegreeSituation {
@@ -13,4 +14,8 @@ export class DegreeSituation {
 
   @Column({ default: true, type: 'boolean', name: 'is_active' })
   isActive: boolean;
+
+  @OneToMany(() => Degree, (degree) => degree.degreeSituation)
+  @JoinColumn({ name: 'degree_situation_id' })
+  degrees: Degree[];
 }

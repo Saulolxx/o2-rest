@@ -1,3 +1,4 @@
+import { Degree } from 'src/modules/degree/entities/degree.entity';
 import { Experience } from 'src/modules/experience/entities/experience.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
@@ -45,4 +46,7 @@ export class Person {
 
   @OneToMany(() => Experience, (experience) => experience.person)
   experiences: Experience[];
+
+  @OneToMany(() => Degree, (degree) => degree.person)
+  degrees: Degree[];
 }
