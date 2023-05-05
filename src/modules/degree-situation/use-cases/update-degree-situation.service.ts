@@ -11,7 +11,9 @@ export class UpdateDegreeSituationService {
   ) {}
 
   public async run(id: number, updatedDegreeSituation: DegreeSituation) {
-    const degreeSituation = await this.degreeSituationsRepository.findOneBy({ id });
+    const degreeSituation = await this.degreeSituationsRepository.findOneBy({
+      id,
+    });
 
     if (!degreeSituation) {
       throw new NotFoundException();

@@ -11,7 +11,9 @@ export class UpdateExperienceRegimeService {
   ) {}
 
   public async run(id: number, updatedExperienceRegime: ExperienceRegime) {
-    const experienceRegime = await this.experienceRegimesRepository.findOneBy({ id });
+    const experienceRegime = await this.experienceRegimesRepository.findOneBy({
+      id,
+    });
 
     if (!experienceRegime) {
       throw new NotFoundException();
