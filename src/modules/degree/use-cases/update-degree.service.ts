@@ -66,12 +66,11 @@ export class UpdateDegreeService {
     Object.assign(degree, {
       ...degree,
       title: title ? title : degree.title,
-      educationInstitution:
-        educationInstitution || educationInstitution === null
-          ? educationInstitution
-          : degree.educationInstitution,
+      educationInstitution: educationInstitution
+        ? educationInstitution
+        : degree.educationInstitution,
 
-      startedAt: startedAt || startedAt === null ? startedAt : degree.startedAt,
+      startedAt: startedAt ? startedAt : degree.startedAt,
 
       finishedAt:
         finishedAt || finishedAt === null ? finishedAt : degree.finishedAt,

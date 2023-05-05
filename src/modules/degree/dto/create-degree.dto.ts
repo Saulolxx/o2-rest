@@ -15,14 +15,14 @@ export class CreateDegreeDto {
   })
   title: string;
 
-  @IsOptional()
+  @IsNotEmpty()
   @IsString()
   @MaxLength(200, {
-    message: 'Title max length 200 characters',
+    message: 'educationInstitution  max length 200 characters',
   })
   educationInstitution: string;
 
-  @IsOptional()
+  @IsNotEmpty()
   @IsDateString()
   startedAt: Date;
 
