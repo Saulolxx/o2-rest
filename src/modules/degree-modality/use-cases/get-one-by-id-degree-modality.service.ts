@@ -11,7 +11,9 @@ export class GetOneByIdDegreeModalityService {
   ) {}
 
   public async run(id: number) {
-    const degreeModality = await this.degreeModalitiesRepository.findOneBy({ id });
+    const degreeModality = await this.degreeModalitiesRepository.findOneBy({
+      id,
+    });
     if (!degreeModality) throw new NotFoundException();
 
     return degreeModality;

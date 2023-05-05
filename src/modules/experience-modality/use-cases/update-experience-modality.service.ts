@@ -11,7 +11,8 @@ export class UpdateExperienceModalityService {
   ) {}
 
   public async run(id: number, updatedExperienceModality: ExperienceModality) {
-    const experienceModality = await this.experienceModalitiesRepository.findOneBy({ id });
+    const experienceModality =
+      await this.experienceModalitiesRepository.findOneBy({ id });
 
     if (!experienceModality) {
       throw new NotFoundException();
