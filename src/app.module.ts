@@ -20,6 +20,7 @@ import { DegreeSituationModule } from './modules/degree-situation/degree-situati
 import { PersonTypeModule } from './modules/person-type/person-type.module';
 import { ExperienceModule } from './modules/experience/experience.module';
 import { ExperienceModalityModule } from './modules/experience-modality/experience-modality.module';
+import { DegreeModule } from './modules/degree/degree.module';
 
 @Module({
   imports: [
@@ -53,6 +54,7 @@ import { ExperienceModalityModule } from './modules/experience-modality/experien
     DegreeSituationModule,
     PersonTypeModule,
     ExperienceModule,
+    DegreeModule,
   ],
   controllers: [AppController],
   providers: [AppService],
