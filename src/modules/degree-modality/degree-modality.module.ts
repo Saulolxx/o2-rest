@@ -21,5 +21,13 @@ import {
     UpdateDegreeModalityService,
     DeleteDegreeModalityService,
   ],
+  exports: [
+    TypeOrmModule,
+    CreateDegreeModalityService,
+    GetOneByIdDegreeModalityService,
+    GetAllDegreeModalityService,
+    UpdateDegreeModalityService,
+    DeleteDegreeModalityService,
+  ],
 })
 export class DegreeModalityModule {}
