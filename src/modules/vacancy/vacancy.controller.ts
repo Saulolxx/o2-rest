@@ -11,7 +11,6 @@ import {
 } from '@nestjs/common';
 import { CreateVacancyDto } from './dto/create-vacancy.dto';
 import { UpdateVacancyDto } from './dto/update-vacancy.dto';
-import { Vacancy } from './entities/vacancy.entity';
 import {
   CreateVacancyProps,
   CreateVacancyService,

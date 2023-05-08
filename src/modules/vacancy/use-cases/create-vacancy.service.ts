@@ -16,13 +16,13 @@ export class CreateVacancyService {
     private vacanciesRepository: Repository<Vacancy>,
   ) {}
 
-  public run({ title, compleoid, description }: CreateVacancyProps) {
+  public async run({ title, compleoid, description }: CreateVacancyProps) {
     const vacancy = new Vacancy();
 
     Object.assign(vacancy, {
       title,
-      compleoid,
-      description,
+      compleoid: compleoid ? compleoid : null,
+      description: description ? description : null,
     });
 
     return this.vacanciesRepository.save(vacancy);
