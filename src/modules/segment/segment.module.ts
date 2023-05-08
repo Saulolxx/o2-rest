@@ -18,6 +18,14 @@ import { UpdateSegment } from './use-cases/update-segment.service';
     GetOneSegment,
     DeleteOneSegment,
   ],
-  exports: [TypeOrmModule, SegmentService],
+  exports: [
+    TypeOrmModule,
+    SegmentService,
+    CreateSegment,
+    UpdateSegment,
+    GetAllSegments,
+    GetOneSegment,
+    DeleteOneSegment,
+  ],
 })
 export class SegmentModule {}
