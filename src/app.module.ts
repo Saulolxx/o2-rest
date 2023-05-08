@@ -21,6 +21,7 @@ import { PersonTypeModule } from './modules/person-type/person-type.module';
 import { ExperienceModule } from './modules/experience/experience.module';
 import { ExperienceModalityModule } from './modules/experience-modality/experience-modality.module';
 import { EvaluationModule } from './modules/evaluation/evaluation.module';
+import { CertificationModule } from './modules/certification/certification.module';
 
 @Module({
   imports: [
@@ -55,6 +56,7 @@ import { EvaluationModule } from './modules/evaluation/evaluation.module';
     PersonTypeModule,
     ExperienceModule,
     EvaluationModule,
+    CertificationModule,
   ],
   controllers: [AppController],
   providers: [AppService],
