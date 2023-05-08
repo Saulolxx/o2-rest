@@ -22,6 +22,7 @@ import { ExperienceModule } from './modules/experience/experience.module';
 import { ExperienceModalityModule } from './modules/experience-modality/experience-modality.module';
 import { DegreeModule } from './modules/degree/degree.module';
 import { EvaluationModule } from './modules/evaluation/evaluation.module';
+import { VacancyModule } from './modules/vacancy/vacancy.module';
 
 @Module({
   imports: [
@@ -57,6 +58,7 @@ import { EvaluationModule } from './modules/evaluation/evaluation.module';
     ExperienceModule,
     DegreeModule,
     EvaluationModule,
+    VacancyModule,
   ],
   controllers: [AppController],
   providers: [AppService],
