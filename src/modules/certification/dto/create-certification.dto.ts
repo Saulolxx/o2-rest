@@ -8,10 +8,6 @@ import {
 } from 'class-validator';
 
 export class CreateCertificationDto {
-  @IsNotEmpty()
-  @IsNumber()
-  personId: number;
-
   @IsOptional()
   @IsNumber()
   segmentId: number;

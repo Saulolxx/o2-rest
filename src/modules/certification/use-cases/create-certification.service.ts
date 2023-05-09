@@ -6,7 +6,7 @@ import { GetOnePerson } from 'src/modules/person/use-cases';
 import { GetOneSegment } from 'src/modules/segment/use-cases'; //service?
 
 export type CreateCertificationProps = {
-  personId: number;
+  personId?: number;
   segmentId?: number;
   title: string;
   issuance: Date;
