@@ -10,10 +10,10 @@ import {
   GetOneByIdInterviewService,
   UpdateInterviewService,
 } from './use-cases';
-import { PersonModule } from '../person/person.module';
+import { CandidatureModule } from '../candidature/candidature.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Interview]), PersonModule],
+  imports: [TypeOrmModule.forFeature([Interview]), CandidatureModule],
   controllers: [InterviewController],
   providers: [
     CreateInterviewService,

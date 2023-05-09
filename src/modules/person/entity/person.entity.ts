@@ -57,7 +57,4 @@ export class Person {
 
   @OneToMany(() => Candidature, (candidature) => candidature.person)
   candidatures: Candidature[];
-
-  @OneToMany(() => Interview, (interview) => interview.candidate)
-  interviews: Interview[];
 }

@@ -1,6 +1,14 @@
+import { Interview } from 'src/modules/interview/entities/interview.entity';
 import { Person } from 'src/modules/person/entity/person.entity';
 import { Vacancy } from 'src/modules/vacancy/entities/vacancy.entity';
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryColumn,
+} from 'typeorm';
 
 @Entity('Candidature')
 export class Candidature {
@@ -23,4 +31,7 @@ export class Candidature {
 
   @Column({ name: 'subscribed_at', type: 'timestamptz' })
   subscribedAt: Date;
+
+  @OneToMany(() => Interview, (interview) => interview.candidature)
+  interviews: Interview[];
 }

@@ -2,14 +2,14 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Interview } from '../entities/interview.entity';
 import { Repository } from 'typeorm';
-import { GetOnePerson } from 'src/modules/person/use-cases';
 import { isBefore } from 'date-fns';
+import { GetOneByIdCandidatureService } from 'src/modules/candidature/use-cases';
 
 export type CreateInterviewProps = {
   date: Date;
   note?: string;
   meetingLink?: string;
-  candidateId: number;
+  candidatureId: number;
 };
 
 @Injectable()
@@ -17,26 +17,26 @@ export class CreateInterviewService {
   constructor(
     @InjectRepository(Interview)
     private interviewsRepository: Repository<Interview>,
-    private readonly getOnePerson: GetOnePerson,
+    private readonly getOneCandidature: GetOneByIdCandidatureService,
   ) {}
 
   public async run({
     date,
     note,
     meetingLink,
-    candidateId,
+    candidatureId,
   }: CreateInterviewProps) {
-    const candidate = await this.getOnePerson.run(candidateId);
+    const candidature = await this.getOneCandidature.run(candidatureId);
 
     const [existingInterview] = await this.interviewsRepository.find({
       where: {
-        candidateId,
+        candidatureId,
         date,
       },
     });
 
     if (existingInterview)
-      throw new BadRequestException('Existing interview for candidate ');
+      throw new BadRequestException('Existing interview for candidature ');
 
     const today = new Date();
     today.setUTCHours(0, 0, 0, 0);
@@ -54,13 +54,13 @@ export class CreateInterviewService {
       date: new Date(date),
       note: note || note === null ? note : null,
       meetingLink: meetingLink || meetingLink === null ? meetingLink : null,
-      candidate,
-      candidateId,
+      candidature,
+      candidatureId,
     });
 
     await this.interviewsRepository.save(interview);
 
-    delete interview.candidate;
+    delete interview.candidature;
 
     return {
       ...interview,

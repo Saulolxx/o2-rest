@@ -1,4 +1,4 @@
-import { Person } from 'src/modules/person/entity/person.entity';
+import { Candidature } from 'src/modules/candidature/entities/candidature.entity';
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm';
 
 @Entity('Interview')
@@ -15,10 +15,10 @@ export class Interview {
   @Column({ name: 'meeting_link', length: '200', type: 'varchar' })
   meetingLink: string;
 
-  @ManyToOne(() => Person, (candidate) => candidate.interviews)
-  @JoinColumn({ name: 'candidate_id' })
-  candidate: Person;
+  @ManyToOne(() => Candidature, (candidature) => candidature.interviews)
+  @JoinColumn({ name: 'candidature_id' })
+  candidature: Candidature;
 
-  @Column({ name: 'candidate_id', type: 'int' })
-  candidateId: number;
+  @Column({ name: 'candidature_id', type: 'int' })
+  candidatureId: number;
 }

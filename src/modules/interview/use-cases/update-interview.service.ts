@@ -7,14 +7,14 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Interview } from '../entities/interview.entity';
 import { Repository } from 'typeorm';
 import { isBefore } from 'date-fns';
-import { GetOnePerson } from 'src/modules/person/use-cases';
+import { GetOneByIdCandidatureService } from 'src/modules/candidature/use-cases';
 
 export type UpdateInterviewProps = {
   id: number;
   date?: Date;
   note?: string;
   meetingLink?: string;
-  candidateId?: number;
+  candidatureId?: number;
 };
 
 @Injectable()
@@ -22,7 +22,7 @@ export class UpdateInterviewService {
   constructor(
     @InjectRepository(Interview)
     private interviewsRepository: Repository<Interview>,
-    private readonly getOnePerson: GetOnePerson,
+    private readonly getOneCandidature: GetOneByIdCandidatureService,
   ) {}
 
   public async run({
@@ -30,7 +30,7 @@ export class UpdateInterviewService {
     id,
     note,
     meetingLink,
-    candidateId,
+    candidatureId,
   }: UpdateInterviewProps) {
     const interview = await this.interviewsRepository.findOneBy({ id });
 
@@ -51,13 +51,13 @@ export class UpdateInterviewService {
 
       const [existingInterview] = await this.interviewsRepository.find({
         where: {
-          candidateId: interview.candidateId,
+          candidatureId: interview.candidatureId,
           date,
         },
       });
 
       if (existingInterview)
-        throw new BadRequestException('Existing interview for candidate');
+        throw new BadRequestException('Existing interview for candidature');
 
       Object.assign(interview, {
         ...interview,
@@ -65,23 +65,23 @@ export class UpdateInterviewService {
       });
     }
 
-    if (candidateId) {
-      const candidate = await this.getOnePerson.run(candidateId);
+    if (candidatureId) {
+      const candidature = await this.getOneCandidature.run(candidatureId);
 
       const [existingInterview] = await this.interviewsRepository.find({
         where: {
-          candidateId,
+          candidatureId,
           date: interview.date,
         },
       });
 
       if (existingInterview)
-        throw new BadRequestException('Existing interview for candidate');
+        throw new BadRequestException('Existing interview for candidature');
 
       Object.assign(interview, {
         ...interview,
-        candidate,
-        candidateId,
+        candidature,
+        candidatureId,
       });
     }
 
@@ -96,7 +96,7 @@ export class UpdateInterviewService {
 
     await this.interviewsRepository.save(interview);
 
-    delete interview.candidate;
+    delete interview.candidature;
 
     return {
       ...interview,

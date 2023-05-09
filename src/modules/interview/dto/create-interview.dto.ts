@@ -21,5 +21,5 @@ export class CreateInterviewDto {
 
   @IsNotEmpty()
   @IsNumber()
-  candidateId: number;
+  candidatureId: number;
 }
