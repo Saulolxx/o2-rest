@@ -25,6 +25,7 @@ import { EvaluationModule } from './modules/evaluation/evaluation.module';
 import { CertificationModule } from './modules/certification/certification.module';
 import { VacancyModule } from './modules/vacancy/vacancy.module';
 import { CandidatureModule } from './modules/candidature/candidature.module';
+import { InterviewModule } from './modules/interview/interview.module';
 
 @Module({
   imports: [
@@ -63,6 +64,7 @@ import { CandidatureModule } from './modules/candidature/candidature.module';
     CertificationModule,
     VacancyModule,
     CandidatureModule,
+    InterviewModule,
   ],
   controllers: [AppController],
   providers: [AppService],
