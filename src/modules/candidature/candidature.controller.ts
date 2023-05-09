@@ -15,8 +15,6 @@ import {
   CreateCandidatureProps,
   CreateCandidatureService,
   DeleteCandidatureService,
-  GetAllCandidatureService,
-  GetAllCandidatureServiceProps,
   GetOneByIdCandidatureService,
   UpdateCandidatureProps,
   UpdateCandidatureService,
@@ -29,7 +27,6 @@ export class CandidatureController {
     private readonly updateCandidatureService: UpdateCandidatureService,
     private readonly deleteCandidatureService: DeleteCandidatureService,
     private readonly getOneByIdCandidatureService: GetOneByIdCandidatureService,
-    private readonly getAllCandidatureService: GetAllCandidatureService,
   ) {}
 
   @Post()
@@ -40,11 +37,6 @@ export class CandidatureController {
     };
 
     return this.createCandidatureService.run(createCandidatureProps);
-  }
-
-  @Get()
-  findAll(getAllCandidatureServiceProps: GetAllCandidatureServiceProps) {
-    return this.getAllCandidatureService.run(getAllCandidatureServiceProps);
   }
 
   @Get(':id')
