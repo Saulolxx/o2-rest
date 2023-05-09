@@ -1,12 +1,10 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateTableExperienceRegime1682624161141
-  implements MigrationInterface
-{
+export class CreateTableVacancy1682624161141 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'ExperienceRegime',
+        name: 'Vacancy',
         columns: [
           {
             name: 'id',
@@ -17,22 +15,21 @@ export class CreateTableExperienceRegime1682624161141
             isGenerated: true,
           },
           {
-            name: 'label',
+            name: 'title',
             type: 'varchar',
             isNullable: false,
             length: '200',
           },
           {
-            name: 'order',
-            type: 'int',
-            isNullable: false,
-            default: 0,
+            name: 'compleoid',
+            type: 'varchar',
+            isNullable: true,
+            length: '200',
           },
           {
-            name: 'is_active',
-            type: 'boolean',
-            isNullable: false,
-            default: true,
+            name: 'description',
+            type: 'text',
+            isNullable: true,
           },
         ],
       }),
@@ -41,6 +38,6 @@ export class CreateTableExperienceRegime1682624161141
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('ExperienceRegime');
+    await queryRunner.dropTable('Vacancy');
   }
 }
