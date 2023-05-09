@@ -22,6 +22,7 @@ import { ExperienceModule } from './modules/experience/experience.module';
 import { ExperienceModalityModule } from './modules/experience-modality/experience-modality.module';
 import { DegreeModule } from './modules/degree/degree.module';
 import { EvaluationModule } from './modules/evaluation/evaluation.module';
+import { CertificationModule } from './modules/certification/certification.module';
 import { VacancyModule } from './modules/vacancy/vacancy.module';
 import { CandidatureModule } from './modules/candidature/candidature.module';
 
@@ -59,6 +60,7 @@ import { CandidatureModule } from './modules/candidature/candidature.module';
     ExperienceModule,
     DegreeModule,
     EvaluationModule,
+    CertificationModule,
     VacancyModule,
     CandidatureModule,
   ],
