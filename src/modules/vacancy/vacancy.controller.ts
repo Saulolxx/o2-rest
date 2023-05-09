@@ -20,6 +20,7 @@ import {
   UpdateVacancyProps,
   UpdateVacancyService,
 } from './use-cases';
+import { GetAllCandidatureService } from '../candidature/use-cases';
 
 @Controller('vacancies')
 export class VacancyController {
@@ -29,6 +30,7 @@ export class VacancyController {
     private readonly deleteVacancyService: DeleteVacancyService,
     private readonly getOneByIdVacancyService: GetOneByIdVacancyService,
     private readonly getAllVacancyService: GetAllVacancyService,
+    private readonly getAllCandidatures: GetAllCandidatureService,
   ) {}
 
   @Post()
@@ -43,6 +45,14 @@ export class VacancyController {
   @Get()
   findAll() {
     return this.getAllVacancyService.run();
+  }
+
+  @Get(':vacancyId/candidatures')
+  async findAllCandidatures(
+    @Param('vacancyId', ParseIntPipe) vacancyId: number,
+  ) {
+    await this.getOneByIdVacancyService.run(vacancyId);
+    return this.getAllCandidatures.run({ vacancyId });
   }
 
   @Get(':id')

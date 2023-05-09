@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Person } from './entity/person.entity';
 import { PersonService } from './person.service';
@@ -6,9 +6,13 @@ import { CreatePerson, GetAllPersons, GetOnePerson } from './use-cases';
 import { PersonController } from './person.controller';
 import { DeleteOnePerson } from './use-cases/delete-one-person.service';
 import { UpdatePerson } from './use-cases/update-person.service';
+import { CandidatureModule } from '../candidature/candidature.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Person])],
+  imports: [
+    TypeOrmModule.forFeature([Person]),
+    forwardRef(() => CandidatureModule),
+  ],
   controllers: [PersonController],
   providers: [
     PersonService,
