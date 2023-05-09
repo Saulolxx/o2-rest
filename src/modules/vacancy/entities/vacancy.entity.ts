@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Candidature } from 'src/modules/candidature/entities/candidature.entity';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 
 @Entity('Vacancy')
 export class Vacancy {
@@ -13,4 +14,7 @@ export class Vacancy {
 
   @Column({ name: 'description', type: 'text' })
   description: string;
+
+  @OneToMany(() => Candidature, (candidature) => candidature.person)
+  candidatures: Candidature[];
 }
