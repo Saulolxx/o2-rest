@@ -2,6 +2,7 @@ import { Candidature } from 'src/modules/candidature/entities/candidature.entity
 import { Certification } from 'src/modules/certification/entities/certification.entity';
 import { Degree } from 'src/modules/degree/entities/degree.entity';
 import { Experience } from 'src/modules/experience/entities/experience.entity';
+import { Interview } from 'src/modules/interview/entities/interview.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity({ name: 'Person' })
@@ -56,4 +57,7 @@ export class Person {
 
   @OneToMany(() => Candidature, (candidature) => candidature.person)
   candidatures: Candidature[];
+
+  @OneToMany(() => Interview, (interview) => interview.candidate)
+  interviews: Interview[];
 }
