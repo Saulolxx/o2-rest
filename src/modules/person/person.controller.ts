@@ -11,10 +11,14 @@ import {
 } from '@nestjs/common';
 import { PersonService } from './person.service';
 import { CreatePersonDto, UpdatePersonDto } from './dto';
+import { GetAllCandidatureService } from '../candidature/use-cases';
 
 @Controller('persons')
 export class PersonController {
-  constructor(private readonly personService: PersonService) {}
+  constructor(
+    private readonly personService: PersonService,
+    private readonly getAllCandidatures: GetAllCandidatureService,
+  ) {}
 
   @Post()
   @HttpCode(201)
@@ -35,6 +39,12 @@ export class PersonController {
   @HttpCode(200)
   findAll() {
     return this.personService.findAll();
+  }
+
+  @Get(':id/candidatures')
+  async findAllCandidatures(@Param('id', ParseIntPipe) id: number) {
+    await this.personService.findOne(id);
+    return this.getAllCandidatures.run({ personId: id });
   }
 
   @Get(':id')
