@@ -93,5 +93,10 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "engines": {
+    "node": "16.x",
+    "yarn": "1.22.x",
+    "npm": "8.19.x"
   }
 }
