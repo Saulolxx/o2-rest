@@ -7,9 +7,16 @@ import {
 
 export class AlterTableInterview1683656004432 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.changeColumn(
+    const table = await queryRunner.getTable('Interview');
+    const personForeignKey = table.foreignKeys.find(
+      (fk) => fk.columnNames.indexOf('candidate_id') !== -1,
+    );
+    await queryRunner.dropForeignKey('Interview', personForeignKey);
+
+    await queryRunner.dropColumn('Interview', 'candidate_id');
+
+    await queryRunner.addColumn(
       'Interview',
-      'candidate_id',
       new TableColumn({
         name: 'candidature_id',
         type: 'int',
@@ -30,14 +37,15 @@ export class AlterTableInterview1683656004432 implements MigrationInterface {
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     const table = await queryRunner.getTable('Interview');
-    const personForeignKey = table.foreignKeys.find(
+    const candidatureForeignKey = table.foreignKeys.find(
       (fk) => fk.columnNames.indexOf('candidature_id') !== -1,
     );
-    await queryRunner.dropForeignKey('Interview', personForeignKey);
+    await queryRunner.dropForeignKey('Interview', candidatureForeignKey);
 
-    await queryRunner.changeColumn(
+    await queryRunner.dropColumn('Interview', 'candidature_id');
+
+    await queryRunner.addColumn(
       'Interview',
-      'candidature_id',
       new TableColumn({
         name: 'candidate_id',
         type: 'int',
