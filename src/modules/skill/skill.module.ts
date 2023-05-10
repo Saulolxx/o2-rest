@@ -21,5 +21,13 @@ import {
     UpdateSkillService,
     DeleteSkillService,
   ],
+  exports: [
+    TypeOrmModule,
+    CreateSkillService,
+    GetOneByIdSkillService,
+    GetAllSkillService,
+    UpdateSkillService,
+    DeleteSkillService,
+  ],
 })
 export class SkillModule {}

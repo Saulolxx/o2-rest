@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { VacancySkill } from 'src/modules/vacancy-skill/entities/vacancy-skill.entity';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 
 @Entity('Skill')
 export class Skill {
@@ -13,4 +14,7 @@ export class Skill {
 
   @Column({ default: true, type: 'boolean', name: 'is_active' })
   isActive: boolean;
+
+  @OneToMany(() => VacancySkill, (vacancySkill) => vacancySkill.skill)
+  vacanciesSkills: VacancySkill[];
 }

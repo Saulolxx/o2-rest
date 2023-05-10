@@ -27,6 +27,7 @@ import { VacancyModule } from './modules/vacancy/vacancy.module';
 import { CandidatureModule } from './modules/candidature/candidature.module';
 import { SkillModule } from './modules/skill/skill.module';
 import { InterviewModule } from './modules/interview/interview.module';
+import { VacancySkillModule } from './modules/vacancy-skill/vacancy-skill.module';
 
 @Module({
   imports: [
@@ -67,6 +68,7 @@ import { InterviewModule } from './modules/interview/interview.module';
     CandidatureModule,
     SkillModule,
     InterviewModule,
+    VacancySkillModule,
   ],
   controllers: [AppController],
   providers: [AppService],
