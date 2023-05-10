@@ -15,7 +15,7 @@ export class CreateSkillDto {
   @IsNumber()
   order?: number;
 
-  @IsNotEmpty()
+  @IsOptional()
   @IsBoolean()
   isActive: boolean;
 }
