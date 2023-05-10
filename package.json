@@ -8,7 +8,7 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start": "typeorm  migration:run -d ./config/database/datasource.config.js  && typeorm  migration:run -d ./config/database/seeder.config.js && node main.js",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -33,9 +33,11 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/mapped-types": "^1.2.2",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/swagger": "^6.3.0",
     "@nestjs/typeorm": "^9.0.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
+    "date-fns": "^2.30.0",
     "pg": "^8.10.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",
@@ -46,7 +48,6 @@
     "@commitlint/config-conventional": "^17.6.1",
     "@nestjs/cli": "^9.0.0",
     "@nestjs/schematics": "^9.0.0",
-    "@nestjs/swagger": "^6.3.0",
     "@nestjs/testing": "^9.0.0",
     "@types/express": "^4.17.13",
     "@types/jest": "29.5.0",
@@ -93,5 +94,10 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "engines": {
+    "node": "16.x",
+    "yarn": ">=1.22.0 <2.0.0",
+    "npm": "8.19.x"
   }
 }
