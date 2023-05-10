@@ -20,6 +20,22 @@ export class CreateVacancySkillService {
   ) {}
 
   public async run({ vacancyId, skillId }: CreateVacancySkillProps) {
+    const [existingVacancySkill] = await this.vacanciesSkillsRepository.find({
+      where: {
+        vacancyId,
+        skillId,
+      },
+    });
+
+    if (existingVacancySkill) {
+      delete existingVacancySkill.vacancy;
+      delete existingVacancySkill.skill;
+
+      return {
+        ...existingVacancySkill,
+      };
+    }
+
     const vacancy = await this.getOneVacancy.run(vacancyId);
     const skill = await this.getOneSkill.run(skillId);
 

@@ -28,6 +28,22 @@ export class UpdateVacancySkillService {
       throw new NotFoundException();
     }
 
+    const [existingVacancySkill] = await this.vacanciesSkillsRepository.find({
+      where: {
+        vacancyId,
+        skillId,
+      },
+    });
+
+    if (existingVacancySkill) {
+      delete existingVacancySkill.vacancy;
+      delete existingVacancySkill.skill;
+
+      return {
+        ...existingVacancySkill,
+      };
+    }
+
     const skill = await this.getOneSkill.run(skillId);
 
     Object.assign(vacancySkill, {
