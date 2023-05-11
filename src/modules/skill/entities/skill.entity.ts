@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn, OneToMany } from 'typeorm';
+import { PersonSkill } from 'src/modules/person-skill/entities/person-skill.entity';
 
 @Entity('Skill')
 export class Skill {
@@ -13,4 +14,7 @@ export class Skill {
 
   @Column({ default: true, type: 'boolean', name: 'is_active' })
   isActive: boolean;
+
+  @OneToMany(() => PersonSkill, (personSkill) => personSkill.skill)
+  personsSkills: PersonSkill[];
 }
