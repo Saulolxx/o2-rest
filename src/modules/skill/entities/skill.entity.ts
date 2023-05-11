@@ -1,5 +1,6 @@
 import { Column, Entity, PrimaryColumn, OneToMany } from 'typeorm';
 import { PersonSkill } from 'src/modules/person-skill/entities/person-skill.entity';
+import { VacancySkill } from 'src/modules/vacancy-skill/entities/vacancy-skill.entity';
 
 @Entity('Skill')
 export class Skill {
@@ -17,4 +18,6 @@ export class Skill {
 
   @OneToMany(() => PersonSkill, (personSkill) => personSkill.skill)
   personsSkills: PersonSkill[];
+  @OneToMany(() => VacancySkill, (vacancySkill) => vacancySkill.skill)
+  vacanciesSkills: VacancySkill[];
 }
