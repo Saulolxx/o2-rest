@@ -5,7 +5,7 @@ import {
   TableForeignKey,
 } from 'typeorm';
 
-export class CreateTableVacancySkill1682624161141
+export class CreateTableVacancySkill1683744326230
   implements MigrationInterface
 {
   public async up(queryRunner: QueryRunner): Promise<void> {
