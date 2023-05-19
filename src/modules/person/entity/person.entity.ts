@@ -3,7 +3,15 @@ import { Certification } from 'src/modules/certification/entities/certification.
 import { Degree } from 'src/modules/degree/entities/degree.entity';
 import { Experience } from 'src/modules/experience/entities/experience.entity';
 import { PersonSkill } from 'src/modules/person-skill/entities/person-skill.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { PersonType } from 'src/modules/person-type/entities/person-type.entity';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 
 @Entity({ name: 'Person' })
 export class Person {
@@ -60,4 +68,11 @@ export class Person {
 
   @OneToMany(() => PersonSkill, (personSkill) => personSkill.person)
   personsSkills: PersonSkill[];
+
+  @ManyToOne(() => PersonType, (personType) => personType.persons)
+  @JoinColumn({ name: 'person_type_id' })
+  personType: PersonType;
+
+  @Column({ name: 'person_type_id', type: 'int' })
+  personTypeId: number;
 }

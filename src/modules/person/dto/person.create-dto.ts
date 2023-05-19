@@ -7,6 +7,7 @@ import {
   IsDateString,
   IsEmail,
   IsPhoneNumber,
+  IsNumber,
 } from 'class-validator';
 
 export class CreatePersonDto {
@@ -62,4 +63,8 @@ export class CreatePersonDto {
   @IsString({ message: 'ReasonRedFlag must be a string.' })
   @MaxLength(500, { message: 'ReasonRedFlag Max length is 500 characters.' })
   reasonRedFlag: string;
+
+  @IsNotEmpty({ message: 'PersonTypeId is mandatory.' })
+  @IsNumber()
+  personTypeId: number;
 }
