@@ -7,11 +7,13 @@ import { PersonController } from './person.controller';
 import { DeleteOnePerson } from './use-cases/delete-one-person.service';
 import { UpdatePerson } from './use-cases/update-person.service';
 import { CandidatureModule } from '../candidature/candidature.module';
+import { PersonTypeModule } from '../person-type/person-type.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Person]),
     forwardRef(() => CandidatureModule),
+    PersonTypeModule,
   ],
   controllers: [PersonController],
   providers: [

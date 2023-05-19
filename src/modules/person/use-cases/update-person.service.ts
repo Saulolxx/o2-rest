@@ -3,6 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Person } from '../entity/person.entity';
 import { GetOnePerson } from './get-one-person.service';
+import { GetOneByIdPersonTypeService } from 'src/modules/person-type/use-cases';
 
 export type UpdatePersonProps = {
   id: number;
@@ -17,6 +18,7 @@ export type UpdatePersonProps = {
   city?: string;
   redFlag?: boolean;
   reasonRedFlag?: string;
+  personTypeId?: number;
 };
 
 @Injectable()
@@ -25,6 +27,7 @@ export class UpdatePerson {
     @InjectRepository(Person)
     private personRepository: Repository<Person>,
     private readonly getOnePerson: GetOnePerson,
+    private readonly getOnePersonType: GetOneByIdPersonTypeService,
   ) {}
 
   public async run(updatePersonProps: UpdatePersonProps) {
@@ -43,9 +46,20 @@ export class UpdatePerson {
       city,
       redFlag,
       reasonRedFlag,
+      personTypeId,
     } = updatePersonProps;
 
     const person = await this.getOnePerson.run(id);
+
+    if (personTypeId) {
+      const personType = await this.getOnePersonType.run(personTypeId);
+
+      Object.assign(person, {
+        ...person,
+        personType,
+        personTypeId,
+      });
+    }
 
     if (email && email !== person.email) {
       const existingEmail: Person | undefined =
@@ -99,7 +113,9 @@ export class UpdatePerson {
       reasonRedFlag: reasonRedFlag ? reasonRedFlag : person.reasonRedFlag,
     });
 
-    this.personRepository.update(id, person);
+    await this.personRepository.update(id, person);
+
+    delete person.personType;
 
     return person;
   }

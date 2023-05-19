@@ -21,5 +21,12 @@ import {
     UpdatePersonTypeService,
     DeletePersonTypeService,
   ],
+  exports: [
+    CreatePersonTypeService,
+    GetOneByIdPersonTypeService,
+    GetAllPersonTypeService,
+    UpdatePersonTypeService,
+    DeletePersonTypeService,
+  ],
 })
 export class PersonTypeModule {}
