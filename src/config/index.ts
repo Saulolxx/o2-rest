@@ -5,5 +5,6 @@ export default () => ({
     user: process.env.DATABASE_USER || 'pg',
     pass: process.env.DATABASE_PASS || '',
     name: process.env.DATABASE_NAME || 'o2database',
+    ssl: process.env.DATABASE_SSL === 'true',
   },
 });

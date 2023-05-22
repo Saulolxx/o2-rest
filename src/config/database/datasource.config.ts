@@ -16,6 +16,7 @@ const datasource = new DataSource({
   username: options.database.user,
   password: options.database.pass,
   database: options.database.name,
+  ssl: options.database.ssl,
   synchronize: false,
   migrations: [resolve(__dirname, 'migrations', '*{.ts,.js}')],
   entities: [resolve(__dirname, '..', '..', '*.entity{.ts,.js}')],
